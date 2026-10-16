@@ -1,0 +1,48 @@
+@media (max-width: 968px) {
+  .info {
+    grid-template-columns: 1fr;
+    padding: 40px 5%;
+  }
+
+  .hero .hero-content .hero-title {
+    font-size: 2rem;
+  }
+
+  .animal-layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .hero-content .search-container {
+    flex-direction: column;
+    width: 90%;
+
+    .search-input {
+      width: 100%;
+    }
+
+    .search-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .info .species-preview .card {
+    width: 100%;
+
+    img {
+      height: 160px;
+    }
+  }
+
+  .species-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}

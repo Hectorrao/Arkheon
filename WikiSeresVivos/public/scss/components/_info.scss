@@ -1,0 +1,39 @@
+.info {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2.5rem;
+  padding: 5rem 5%;
+  background: $light-bg;
+  flex: 1;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 5%;
+  }
+
+  .text {
+    h2 {
+      font-size: 2rem;
+      color: $text-dark;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $text-light;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+  }
+
+  .species-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+    .species-preview > * {
+    max-width: 320px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,226 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(92, 67, 14, 0.98);
+
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+    }
+  }
+
+  .topbar-logo {
+    color: $white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #e8a84c;
+    }
+  }
+
+  .topbar-search {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .search-input.small {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 9999px;
+      width: 400px;
+      font-size: 0.9rem;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #e8a84c;
+      }
+    }
+
+    .search-button.small {
+      padding: 8px 20px;
+      background: #5C430E;
+      border: #875E0B 2px solid;
+      color: $white;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #4d3505;
+      }
+    }
+
+    .suggestions-box {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $white;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      margin-top: 3px;
+      z-index: 10;
+      max-height: 300px;
+      overflow-y: auto;
+      width: 400px;
+
+      &[hidden] {
+        display: none;
+      }
+
+      .suggestion-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 0.7rem;
+        cursor: pointer;
+        border-bottom: 1px solid #e2e8f0;
+        transition: background 0.2s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: $light-bg;
+        }
+
+        .suggestion-img {
+          width: 6rem;
+          height: 4.75rem;
+          border-radius: 5px;
+          object-fit: cover;
+          flex-shrink: 0;
+        }
+
+        .suggestion-text {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.6rem;
+          min-width: 0;
+
+          .suggestion-nombre {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1a1a1a;
+
+            strong {
+              color: $primary-color;
+              font-weight: 700;
+            }
+          }
+
+          .suggestion-cientifico {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+
+.filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #f0eada;
+  padding: 0.75rem 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem;
+  }
+
+  .filters-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .filters-count {
+    font-size: 0.85rem;
+    color: #6b5a3a;
+    white-space: nowrap;
+  }
+
+  .filters-sort {
+    border: 1px solid #d8cdb0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    background: $white;
+    color: #3d3520;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #e8a84c;
+    }
+  }
+
+  .filters-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #d8cdb0;
+    background: $white;
+    color: #3d3520;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    i {
+      font-size: 15px;
+    }
+
+    &:hover {
+      border-color: #875E0B;
+    }
+
+    &.active {
+      background: #5C430E;
+      border-color: #5C430E;
+      color: $white;
+    }
+  }
+
+  .filters-separator {
+    width: 1px;
+    height: 22px;
+    background: #d8cdb0;
+    margin: 0 4px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}

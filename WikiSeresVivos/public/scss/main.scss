@@ -1,0 +1,18 @@
+// Base
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/body-page';
+
+// Components
+@import 'components/hero';
+@import 'components/epoch-axis';
+@import 'components/info';
+@import 'components/navbar';
+@import 'components/animal-page';
+@import 'components/search';
+@import 'components/footer';
+@import 'components/cards';
+@import 'components/pagination';
+
+// Layouts
+@import 'layouts/responsive';

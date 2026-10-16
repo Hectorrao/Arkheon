@@ -1,0 +1,208 @@
+.epoch-axis {
+  background: rgba($white, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+
+  .epoch-axis-title {
+    text-align: center;
+    color: $white;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .epoch-axis-body {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .epoch-axis-carousel {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .epoch-axis-track {
+    display: flex;
+    align-items: center;
+    width: 200%;
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+
+    &.show-eras {
+      transform: translateX(-50%);
+    }
+  }
+
+  .epoch-axis-panel {
+    width: 50%;
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  .epoch-axis-arrow {
+    position: absolute;
+    top: 50%;
+    right: -1.25rem;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: none;
+    background: rgba($white, 0.15);
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background 0.25s ease, right 0.45s ease, left 0.45s ease;
+    z-index: 2;
+
+    &:hover {
+      background: rgba($white, 0.3);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #e8a84c;
+      outline-offset: 2px;
+    }
+
+    .epoch-axis-arrow-icon {
+      display: inline-block;
+      line-height: 1;
+      transform: translateX(1px);
+      transition: transform 0.45s ease;
+    }
+
+    @media (max-width: 480px) {
+      right: -0.6rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  .epoch-axis-body.is-era {
+    .epoch-axis-arrow {
+      right: auto;
+      left: -1.25rem;
+
+      @media (max-width: 480px) {
+        left: -0.6rem;
+      }
+    }
+
+    .epoch-axis-arrow-icon {
+      transform: rotate(180deg) translateX(1px);
+    }
+  }
+
+  .epoch-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 0;
+  }
+
+  .epoch-chip {
+    padding: 0.33rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background: var(--chip-color, #64748b);
+    color: $text-dark;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      filter: brightness(0.95);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 3px $white, 0 0 0 6px #e8a84c;
+      z-index: 1;
+    }
+
+    .epoch-chip-short {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .epoch-chip-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    .epoch-chip-dates{
+
+      margin: 0.3rem 0 0 0;
+    }
+  }
+
+  .epoch-axis-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid rgba($white, 0.2);
+
+    .epoch-axis-info {
+      color: $white;
+      font-size: 0.9rem;
+
+      strong {
+        color: #e8a84c;
+        font-weight: 700;
+      }
+    }
+
+    .epoch-axis-submit {
+      padding: 8px 32px;
+      background: #e8a84c;
+      color: $text-dark;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background: darken(#e8a84c, 10%);
+        transform: translateY(-1px);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .epoch-axis-body {
+      gap: 0.5rem;
+    }
+
+    .epoch-axis-arrow {
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 1.25rem;
+    }
+  }
+}
